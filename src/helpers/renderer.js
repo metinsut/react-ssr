@@ -8,7 +8,9 @@ export default () => {
 
     return `
     <html>
-    <head></head>
+    <head>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    </head>
     <body>
         <div id="root">${content}</div>
         <script src="bundle.js"></script>

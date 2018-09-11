@@ -21240,7 +21240,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Home = function Home() {
     return _react2.default.createElement(
         "div",
-        null,
+        { className: "test" },
         _react2.default.createElement(
             "div",
             null,
