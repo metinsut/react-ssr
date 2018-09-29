@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from 'react-router';
 import { Provider } from "react-redux";
@@ -11,7 +11,7 @@ export default (req, store) => {
     const content = renderToString(
         <Provider store={store}>
             <StaticRouter location={req.path} context={{}}>
-                <div>{renderRoutes(Routes)}</div>
+                <Fragment>{renderRoutes(Routes)}</Fragment>
             </StaticRouter>
         </Provider>
     );

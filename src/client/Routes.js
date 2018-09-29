@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import HomePage from "./pages/Home";
-import UsersListPage from "./pages/UserList";
+import React from 'react'
+import HomePage from "./pages/HomePage";
+import UsersListPage from "./pages/UserListPage";
 
 export default [
     {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchUsers } from '../actions';
@@ -16,11 +16,11 @@ class UsersList extends Component {
 
     render() {
         return (
-            <div>
+            <Fragment>
                 <Link to="/">HOME</Link>
                 <h1>List of users:</h1>
                 <ul>{this.renderUsers()}</ul>
-            </div>
+            </Fragment>
         )
     }
 }
@@ -34,8 +34,6 @@ const mapStateToProps = (state) => {
 const loadData = (store) => {
     return store.dispatch(fetchUsers());
 }
-
-export { loadData };
 
 export default {
     loadData,

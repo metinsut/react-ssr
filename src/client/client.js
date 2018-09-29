@@ -1,5 +1,5 @@
 import "babel-polyfill";
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
@@ -14,7 +14,7 @@ const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk)
 ReactDom.hydrate(
     <Provider store={store}>
         <BrowserRouter>
-            <div>{renderRoutes(Routes)}</div>
+            <Fragment>{renderRoutes(Routes)}</Fragment>
         </BrowserRouter>
     </Provider>
     , document.querySelector("#root"));
