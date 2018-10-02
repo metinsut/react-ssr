@@ -5,20 +5,25 @@ import { Provider } from "react-redux";
 import { renderRoutes } from "react-router-config";
 import serialize from 'serialize-javascript';
 import Routes from "../client/Routes";
+import { Helmet } from "react-helmet";
 
 
-export default (req, store) => {
+export default (req, store, context) => {
     const content = renderToString(
         <Provider store={store}>
-            <StaticRouter location={req.path} context={{}}>
+            <StaticRouter location={req.path} context={context}>
                 <Fragment>{renderRoutes(Routes)}</Fragment>
             </StaticRouter>
         </Provider>
     );
 
+    const helmet = Helmet.renderStatic();
+
     return `
     <html>
     <head>
+    ${helmet.title.toString()}
+    ${helmet.meta.toString()}
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     </head>
     <body>

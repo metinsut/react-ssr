@@ -6,7 +6,6 @@ const App = ({ route }) => {
         <Fragment>
             <header>HEADER</header>
             {renderRoutes(route.routes)}
-            <footer>FOOTER</footer>
         </Fragment>
     )
 };

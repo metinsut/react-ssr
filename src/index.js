@@ -13,6 +13,7 @@ const app = express();
 //         return opts;
 //     }
 // }));
+
 app.use(express.static("public"));
 
 app.get("*", (req, res) => {
@@ -23,7 +24,18 @@ app.get("*", (req, res) => {
     });
 
     Promise.all(promises).then(() => {
-        res.send(renderer(req, store));
+        const context = {};
+        const content = renderer(req, store, context);
+
+        if (context.url) {
+            return res.redirect(301, content.url);
+        }
+
+        if (context.notFound) {
+            res.status(404);
+        };
+
+        res.send(content);
     });
 })
 

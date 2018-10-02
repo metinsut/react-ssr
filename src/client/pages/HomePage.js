@@ -1,15 +1,32 @@
-import React,{Fragment} from "react";
-import { Link } from "react-router-dom";
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from "react-helmet";
 
-const Home = () => {
-    return (
-        <Fragment>
-            <div>Home Page</div>
-            <Link to="/users">Users</Link>
-        </Fragment>
-    );
+class HomePage extends Component {
+
+    head() {
+        return (
+            <Helmet>
+                <title>HomePage</title>
+                <meta name="description" content="Homepage" />
+                <meta property="og:title" content="Homepage" />
+                <meta property="og:description" content="Homepage Desc." />
+            </Helmet>
+        )
+    }
+
+    render() {
+        return (
+            <Fragment>
+                {this.head()}
+                <h3>Home Page</h3>
+                <Link  to="/users">Users</Link>
+            </Fragment>
+        )
+    }
 }
 
+
 export default {
-    component: Home
+    component: HomePage
 };
